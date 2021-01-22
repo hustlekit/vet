@@ -39,6 +39,7 @@
           <th scope="col">Data</th>
           <th scope="col">Zwierzę</th>
           <th scope="col">Lekarz</th>
+          <th></th>
         </tr>
         </thead>
         <tbody>
@@ -46,6 +47,7 @@
           <td>{{v.date}}</td>
           <td>{{v.petName}}</td>
           <td>{{v.doctorName}}</td>
+          <td><button class="btn btn-primary w-100 form-control" (click)="delete(v.id)">Usuń</button></td>
         </tr>
         </tbody>
       </table>

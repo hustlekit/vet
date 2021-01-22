@@ -40,4 +40,14 @@ export class AppointmentService {
       });
     this.router.navigate(['/appointment-list']);
   }
+
+  delete(id: number): void {
+    const url = this.baseUrl + '/delete/' + id;
+    console.log(id);
+    this.http.delete(url)
+      .subscribe(result => {
+        console.log(result);
+      });
+    this.router.navigate(['/appointment-list']);
+  }
 }

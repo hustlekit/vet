@@ -27,4 +27,9 @@ public class AppointmentController {
     public void save(@RequestBody AppointmentDao appointmentDao) {
         service.save(appointmentDao);
     }
+
+    @DeleteMapping(path = "/delete/{id}")
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
+    }
 }

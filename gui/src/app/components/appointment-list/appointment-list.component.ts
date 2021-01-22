@@ -37,12 +37,13 @@ export class AppointmentListComponent implements OnInit {
     this.router.navigate(['/appointment-form']);
   }
 
-  setDoctors(v: IDoctor[]): void {
-    this.doctors = v;
+  delete(id: number): void {
+    console.log(id);
+    this.appointmentService.delete(id);
   }
 
-  setAppointments(v: IAppointment[]): void {
-    this.appointments = v;
+  setDoctors(v: IDoctor[]): void {
+    this.doctors = v;
   }
 
 }

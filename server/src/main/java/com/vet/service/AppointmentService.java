@@ -42,4 +42,8 @@ public class AppointmentService {
     public void save(AppointmentDao appointmentDao) {
         appointmentRepository.save(mapper.map(appointmentDao));
     }
+
+    public void delete(Long id) {
+        appointmentRepository.deleteById(id);
+    }
 }
