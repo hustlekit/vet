@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h4>Wybierz lekarza i date aby wyświetlić zajęte terminy</h4>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="row mb-3">
+          <div class="col">
+            <label for="doctorSelect"></label>
+            <select class="form-control" id="doctorSelect" name="doctor" ngModel>
+              <option *ngFor="let v of doctors">{{v.name}}</option>
+            </select>
+          </div>
+          <div class="col">
+            <label for="date"></label>
+            <input type="date" class="form-control" id="date" name="date" ngModel />
+          </div>
+        </div>
+        <div class="row">
+          <div class="offset-10"></div>
+          <div class="col-2">
+            <button type="submit" class="btn btn-primary w-100 form-control">Zatwierdź</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Zwierzę</th>
+          <th scope="col">Lekarz</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let v of appointments">
+          <td>{{v.date}}</td>
+          <td>{{v.petName}}</td>
+          <td>{{v.doctorName}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
