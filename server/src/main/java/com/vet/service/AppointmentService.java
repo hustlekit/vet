@@ -17,10 +17,12 @@ public class AppointmentService {
 
     private PetService petService;
     private AppointmentRepository appointmentRepository;
+    private AppointmentMapper mapper;
 
-    public AppointmentService(AppointmentRepository appointmentRepository, PetService petService) {
-        this.appointmentRepository = appointmentRepository;
+    public AppointmentService(PetService petService, AppointmentRepository appointmentRepository, AppointmentMapper mapper) {
         this.petService = petService;
+        this.appointmentRepository = appointmentRepository;
+        this.mapper = mapper;
     }
 
     public List<AppointmentDao> getAllByPetsIds(List<Long> ids){
@@ -32,8 +34,12 @@ public class AppointmentService {
             temp = Stream.concat(temp.stream(), tempAppList.stream()).collect(Collectors.toList());
         }
         for (Appointment app : temp) {
-            result.add(AppointmentMapper.map(app));
+            result.add(mapper.map(app));
         }
         return result;
+    }
+
+    public void save(AppointmentDao appointmentDao) {
+        appointmentRepository.save(mapper.map(appointmentDao));
     }
 }

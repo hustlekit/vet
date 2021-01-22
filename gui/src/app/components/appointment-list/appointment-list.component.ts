@@ -5,6 +5,7 @@ import {AppointmentService} from '../../services/appointment/appointment.service
 import {NgForm} from '@angular/forms';
 import {IDoctor} from '../../model/idoctor';
 import {DoctorService} from '../../services/doctor/doctor.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-appointment-list',
@@ -17,6 +18,7 @@ export class AppointmentListComponent implements OnInit {
   doctors: IDoctor[] = [];
 
   constructor(
+    private router: Router,
     private stateService: StateService,
     private appointmentService: AppointmentService,
     private doctorService: DoctorService
@@ -29,6 +31,10 @@ export class AppointmentListComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
     console.log(form);
+  }
+
+  appointmentForm(): void {
+    this.router.navigate(['/appointment-form']);
   }
 
   setDoctors(v: IDoctor[]): void {

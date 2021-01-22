@@ -9,11 +9,10 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "appointment")
-@SequenceGenerator(name = "appointment_id", sequenceName = "seq_appointment_id")
 public class Appointment {
 
     @Id
-    @GeneratedValue(generator = "appointment_id", strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date date;
     @ManyToOne

@@ -9,11 +9,10 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "doctor")
-@SequenceGenerator(name = "doctor_id", sequenceName = "seq_doctor_id")
 public class Doctor {
 
     @Id
-    @GeneratedValue(generator = "doctor_id", strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
