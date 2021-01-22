@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    username: vet
+    password: vet
+
+    # memory db
+    # url: jdbc:h2:mem:vetclinic
+
+    # in-file db to make connection from IntelliJ database module available
+    url: jdbc:h2:~/vetClinicDBInHomeDir;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    initialization-mode: always
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    generate-ddl: true
+    properties:
+      hibernate:
+        hbm2dll:
+          import_files: data.sql
+  h2:
+    console:
+      enabled: true
